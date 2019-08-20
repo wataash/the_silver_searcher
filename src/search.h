@@ -42,6 +42,7 @@ struct work_queue_t {
 typedef struct work_queue_t work_queue_t;
 
 work_queue_t *work_queue;
+work_queue_t *work_queue_sorted;
 work_queue_t *work_queue_tail;
 int done_adding_files;
 pthread_cond_t files_ready;

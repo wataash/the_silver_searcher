@@ -197,8 +197,28 @@ int main(int argc, char **argv) {
             search_dir(ig, base_paths[i], paths[i], 0, s.st_dev);
             cleanup_ignore(ig);
         }
+        // sleep(1);
         pthread_mutex_lock(&work_queue_mtx);
         done_adding_files = TRUE;
+        // sort it!
+        // oh, no, it's too late...
+        {
+            int count = 0;
+            work_queue_t *qp;
+            for (qp = work_queue; qp != NULL; qp = qp->next)
+                count++;
+            // work_queue_t **work_queue_array = malloc(sizeof(work_queue_t *) * count);
+            work_queue_t **work_queue_array = calloc(count, sizeof(work_queue_t *));
+            int i_tmp = 0;
+            for (qp = work_queue; qp != NULL; qp = qp->next) {
+                work_queue_array[i_tmp] = qp;
+                i_tmp++;
+            }
+            if (i_tmp != count)
+                printf("i_tmp != count\n");
+            // qsort(work_queue_array, )
+            // work_queue_sorted =
+        }
         pthread_cond_broadcast(&files_ready);
         pthread_mutex_unlock(&work_queue_mtx);
         for (i = 0; i < workers_len; i++) {
