@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="74a60c85-f817-42d4-9f81-9339ec83b347" name="cbt0" projectName="the_silver_searcher">
+      <configuration id="0de2fcb7-b4ee-4310-9e73-264e64a5f02c" name="cbt0">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_et_echo" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>
